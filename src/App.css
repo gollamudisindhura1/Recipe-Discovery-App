@@ -1,0 +1,20 @@
+:root {
+  --primary: #ff7043;
+  --secondary: #4caf50;
+  --bg: #fafafa;
+  --text: #333;
+  --card-bg: #ffffff;
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,22 @@
+.favorite-btn {
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.05);
+}
+
+.favorite-btn.add {
+  background: var(--secondary);
+  color: white;
+}
+
+.favorite-btn.remove {
+  background: crimson;
+  color: white;
+}

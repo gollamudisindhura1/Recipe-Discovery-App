@@ -1,0 +1,18 @@
+.recipe-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.25s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-6px);
+}
+
+.recipe-card img {
+  width: 100%;
+  border-radius: var(--radius);
+}

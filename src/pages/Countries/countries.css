@@ -1,0 +1,14 @@
+.countries {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.countries a {
+  background: var(--primary);
+  color: white;
+  padding: 14px;
+  text-align: center;
+  border-radius: var(--radius);
+  text-decoration: none;
+}
