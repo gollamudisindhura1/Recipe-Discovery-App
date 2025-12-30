@@ -1,73 +1,85 @@
-# React + TypeScript + Vite
+# SBA - Recipe Discovery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React and  TypeScript application that allows users to explore recipes from around the world using TheMealDB API. Users can browse recipes by country, view detailed recipe information, search for meals, and save their favorite recipes with persistent storage.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was built to practice and demonstrate:
 
-## React Compiler
+- React fundamentals with functional components
+- Custom hooks
+- React Context for global state
+- API data fetching
+- TypeScript for type safety
+- Modular folder structure
+- Clean UI with reusable components
+The application fetches live data from an external API and does not use any hard-coded recipe data.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Technologies Used
+1. React
+2. TypeScript
+3. React Router DOM
+4. CSS (modular per component/page)
+5. TheMealDB Public API
+6. LocalStorage (for persistence)
 
-## Expanding the ESLint configuration
+## Features
+### Browse Recipes by Country
+- Fetches all available countries from the API
+- Displays country list dynamically
+- Clicking a country loads its recipes
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Recipe Details Page
+- Displays full recipe information
+- Shows image, instructions, and ingredients
+- Data is fetched using recipe ID
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Search Recipes
+- Search meals by name
+- Displays results dynamically
+- Handles empty and no-result searches safely
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Favorites Functionality
+- Add and remove favorite recipes
+- Check if a recipe is already a favorite
+- Favorites persist using localStorage
+- Favorites state is shared across the app using Context
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Performance and User Experience
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Reusable useFetch custom hook
+- Custom Hooks
+- A reusable hook that handles:
+      - API calls
+      - Loading state
+      - Error handling
+Used to store and persist favorite recipes so data remains even after refreshing the page.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### State Management
+- Favorites Context
+- Favorites are managed using React Context instead of props to:
+- Avoid prop drilling
+- Share state across multiple pages
+- Keep logic centralized and reusable
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Reflection Questions: 
+- The Most Challenging Part:
+1. The most challenging part of the project was managing shared state across multiple pages while keeping the code organized.
+Handling favorites across different routes (country list, recipe list, recipe detail, and favorites page) required moving logic out of components and into a Context Provider. This involved careful TypeScript typing and proper provider setup to avoid runtime and fast-refresh errors.
+Another challenge was handling API responses that could be null or inconsistent, which required defensive checks and better typing.
+
+1. Why I Created a useFetch Hook
+- Instead of repeating fetch logic in every component, I created a reusable hook to:
+- Improve readability
+- Reduce duplication
+- Make the app easier to maintain and extend
+
+2. Why I Used Context for Favorites
+- Favorites needed to be accessed from multiple unrelated components.
+- Using Context allowed me to manage favorites in one place and expose helper functions like:
+- addFavorite
+- removeFavorite
+- isFavorite
+
+3. Why the API Logic Is Separated
+- Separating API logic from UI components keeps components focused on rendering and makes the app easier to update if the API changes in the future.
