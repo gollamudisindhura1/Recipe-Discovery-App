@@ -1,16 +1,42 @@
 .favorites {
-  padding: 2rem;
+  padding: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.favorites ul {
-  list-style: none;
-  margin-top: 1rem;
+.favorites h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
-.favorites li {
-  background: white;
-  padding: 0.8rem;
-  margin-bottom: 0.6rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+.empty-message {
+  font-size: 1.3rem;
+  color: #666;
+  margin-top: 3rem;
+  font-style: italic;
+}
+
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Loading & Error */
+.favorites-loading {
+  text-align: center;
+  padding: 4rem;
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #d32f2f;
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
 }
