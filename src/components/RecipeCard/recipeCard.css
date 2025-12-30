@@ -1,18 +1,15 @@
-.recipe-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 12px;
-  text-decoration: none;
-  color: var(--text);
-  transition: transform 0.25s ease;
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: transform 0.3s;
 }
 
-.recipe-card:hover {
-  transform: translateY(-6px);
+.card:hover {
+  transform: scale(1.05);
 }
 
-.recipe-card img {
+.card img {
   width: 100%;
-  border-radius: var(--radius);
+  border-radius: 8px;
 }
