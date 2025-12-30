@@ -12,20 +12,29 @@ export function useFetch<T>(url: string) {
 
 
 useEffect (()=> {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setLoading(true)
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
 
-    fetch(url)
-    .then (res =>res.json())
-    .then (data =>{
-        setData(data)
-        setError(null)
+      try {
+        const res = await fetch(url);
 
-    })
-    .catch(() =>setError("Failed to load data"))
-    .finally(()=>setLoading(false))
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
 
+        const json = await res.json();
+        setData(json);
+      } catch {
+        setError("Failed to load data");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-}, [url])
-return {data, error, loading}
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
 }
+    
