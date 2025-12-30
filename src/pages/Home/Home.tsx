@@ -20,7 +20,7 @@ export default function Home() {
       <form onSubmit={handleSearch} className="search-form">
           <input
             type="text"
-            placeholder="Search recipes or ingredients... (e.g., pizza, chicken, pasta)"
+            placeholder="Search by Recipes... (e.g., Biryani, Pasta)"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
@@ -29,7 +29,7 @@ export default function Home() {
             Search
           </button>
         </form>
-
+{/* 
       <div className="home-links">
         <Link to="/countries" className="home-btn primary">
           Browse by Country
@@ -39,10 +39,10 @@ export default function Home() {
           Search Recipes
         </Link> */}
 
-        <Link to="/favorites" className="home-btn outline">
+        {/* <Link to="/favorites" className="home-btn outline">
             My Favorites
           </Link>
-      </div>
+      </div>  */}
       </div>
     </div>
   );

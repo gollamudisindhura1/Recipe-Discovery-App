@@ -1,9 +1,36 @@
 .search-results {
-  padding: 1rem;
+  padding: 3rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.search-grid {
+.search-results h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.results-count {
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.results-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.no-query, .loading, .error, .no-results {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.3rem;
+  color: #666;
+}
+
+.error {
+  color: #d32f2f;
 }
