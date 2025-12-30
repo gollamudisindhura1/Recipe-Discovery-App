@@ -1,24 +1,65 @@
 .home {
-  text-align: center;
-  padding: 3rem;
-}
-
-.home-links {
-  margin-top: 2rem;
+  min-height: 100vh;
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
   justify-content: center;
-}
-
-.home-btn {
-  padding: 0.8rem 1.5rem;
-  background: #ff7043;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+              url('https://images.pexels.com/photos/5702766/pexels-photo-5702766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Dark food photo */
+  background-size: cover;
+  background-position: center;
   color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
+  text-align: center;
+  padding: 2rem;
 }
 
-.home-btn.secondary {
-  background: #607d8b;
+.search-form {
+  display: flex;
+  max-width: 700px;
+  margin: 2.5rem auto;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.1); /* Subtle glass effect */
+  backdrop-filter: blur(10px); /* Modern frosted glass - optional but cool */
+}
+
+.search-input {
+  flex: 1;
+  padding: 1.3rem 1.8rem;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  background: transparent; /* No white! */
+  color: white;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-btn {
+  padding: 0 3rem;
+  background: #ff7043; /* Keep your orange accent */
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-btn:hover {
+  background: #f4511e;
+}
+
+/* Ensure text is bright on dark background */
+.hero-content h1 {
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
