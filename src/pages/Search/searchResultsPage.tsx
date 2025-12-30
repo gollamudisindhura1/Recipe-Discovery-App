@@ -16,7 +16,9 @@ type SearchResponse = {
 
 export default function SearchResultsPage() {
   const [searchParams] = useSearchParams();
-  const query = searchParams.get("q") || "";
+  const query = searchParams.get("q")?.trim() || "";
+  
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data, loading, error } = useFetch<SearchResponse>(
     `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(query)}`
   );
@@ -34,9 +36,12 @@ export default function SearchResultsPage() {
   }
 
   if (!data?.meals || data.meals.length === 0) {
-    return <p className="no-results">No recipes found for "{query}". Try something like "pizza", "Biryani", or "pasta"!</p>;
+    return (
+      <p className="no-results">
+        No recipes found for "<strong>{query}</strong>". Try a different term!
+      </p>
+    );
   }
-
   return (
     <div className="search-results fade-in">
       <h2>Search Results for "{query}"</h2>

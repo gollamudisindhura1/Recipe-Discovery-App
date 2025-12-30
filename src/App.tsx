@@ -5,6 +5,7 @@ import CountriesPage from "./pages/Countries/CountriesPage";
 import RecipesByCountry from "./pages/RecipesByCountry/RecipesByCountry";
 import RecipeDetail from "./pages/RecipeDetail/RecipeDetail";
 import FavoritesPage from "./pages/Favorites/FavoritesPage";
+import SearchResultsPage from "./pages/Search/searchResultsPage";
 
 export default function App() {
   return (
@@ -16,7 +17,9 @@ export default function App() {
         <Route path="/country/:country" element={<RecipesByCountry />} />
         <Route path="/recipe/:id" element={<RecipeDetail />} />
         <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/search" element={<SearchResultsPage />} />
       </Routes>
+
     </BrowserRouter>
   );
 }

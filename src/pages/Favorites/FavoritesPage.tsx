@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useFavorites } from "../../context/FavoritesProvider";
-//import { useFetch } from "../../hooks/useFetch";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import "./favorites.css";
 
