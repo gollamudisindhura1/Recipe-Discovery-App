@@ -1,0 +1,16 @@
+.favorites {
+  padding: 2rem;
+}
+
+.favorites ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.favorites li {
+  background: white;
+  padding: 0.8rem;
+  margin-bottom: 0.6rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}

@@ -1,15 +1,21 @@
-.card {
+.recipe-card {
   background: white;
-  padding: 1rem;
   border-radius: 12px;
-  transition: transform 0.3s;
+  padding: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.recipe-card:hover {
+  transform: translateY(-5px);
 }
 
-.card img {
+.recipe-card img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
+}
+
+.recipe-card h4 {
+  margin-top: 0.8rem;
+  text-align: center;
 }

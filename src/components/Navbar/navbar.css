@@ -1,13 +1,27 @@
 .navbar {
+  background: #ff7043;
+  padding: 1rem 2rem;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background: #ff7043;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.navbar h2 {
   color: white;
 }
 
-.navbar a {
-  margin-left: 1rem;
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav-links a {
   color: white;
-  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
 }
