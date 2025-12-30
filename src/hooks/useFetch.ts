@@ -20,13 +20,13 @@ useEffect (()=> {
         const res = await fetch(url);
 
         if (!res.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
         }
 
         const json = await res.json();
-        setData(json);
-      } catch {
-        setError("Failed to load data");
+        setData(json as T);
+      } catch (err){
+        setError(err instanceof Error ? err.message : "Failed to load data");
       } finally {
         setLoading(false);
       }

@@ -1,31 +1,33 @@
 import { useContext } from "react";
-import { FavoritesContext } from "./FavoritesContext";
+import { FavoritesContext, type FavoritesContextType, type FavoritesProviderProps } from "./FavoritesContext";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
-export function FavoritesProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+// Provides the favorites state to the entire app
+export function FavoritesProvider({ children }: FavoritesProviderProps) {
   const [favorites, setFavorites] =
     useLocalStorage<string[]>("favorites", []);
 
-  const addFavorite = (id: string) => {
-    if (!favorites.includes(id)) {
-      setFavorites([...favorites, id]);
-    }
-  };
+ const addFavorite = (id: string) => {
+  setFavorites((prev: string[]) => 
+    prev.includes(id) ? prev : [...prev, id]
+  );
+};
 
   const removeFavorite = (id: string) => {
-    setFavorites(favorites.filter(f => f !== id));
+  setFavorites((prev: string[]) => prev.filter(f => f !== id));
+};
+
+  const isFavorite = (id: string): boolean => favorites.includes(id);
+
+  const value: FavoritesContextType = {
+    favorites,
+    addFavorite,
+    removeFavorite,
+    isFavorite,
   };
 
-  const isFavorite = (id: string) => favorites.includes(id);
-
   return (
-    <FavoritesContext.Provider
-      value={{ favorites, addFavorite, removeFavorite, isFavorite }}
-    >
+    <FavoritesContext.Provider value={value}>
       {children}
     </FavoritesContext.Provider>
   );
@@ -33,9 +35,9 @@ export function FavoritesProvider({
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useFavorites() {
-  const ctx = useContext(FavoritesContext);
-  if (!ctx) {
+  const context = useContext(FavoritesContext);
+  if (!context) {
     throw new Error("useFavorites must be used inside FavoritesProvider");
   }
-  return ctx;
+  return context;
 }

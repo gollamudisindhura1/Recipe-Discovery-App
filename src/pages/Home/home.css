@@ -19,8 +19,8 @@
   border-radius: 50px;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  background: rgba(255, 255, 255, 0.1); /* Subtle glass effect */
-  backdrop-filter: blur(10px); /* Modern frosted glass - optional but cool */
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(10px); 
 }
 
 .search-input {
@@ -29,7 +29,7 @@
   font-size: 1.2rem;
   border: none;
   outline: none;
-  background: transparent; /* No white! */
+  background: transparent; 
   color: white;
 }
 
@@ -39,7 +39,7 @@
 
 .search-btn {
   padding: 0 3rem;
-  background: #ff7043; /* Keep your orange accent */
+  background: #ff7043; 
   color: white;
   border: none;
   font-weight: bold;
@@ -52,7 +52,7 @@
   background: #f4511e;
 }
 
-/* Ensure text is bright on dark background */
+
 .hero-content h1 {
   font-size: 3.5rem;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);

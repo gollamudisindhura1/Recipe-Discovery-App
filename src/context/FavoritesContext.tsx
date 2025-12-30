@@ -1,4 +1,4 @@
-import { createContext} from "react";
+import { createContext, type ReactNode} from "react";
 
  //This defines what data and functions
  //our Favorites Context will expose globally
@@ -12,4 +12,8 @@ export type FavoritesContextType = {
 }
 
 export const FavoritesContext = createContext<FavoritesContextType | null > (null)
+
+export type FavoritesProviderProps = {
+  children: ReactNode;
+};
 

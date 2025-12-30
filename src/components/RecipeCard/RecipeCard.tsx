@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
 import "./recipeCard.css";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function RecipeCard({ meal }: any) {
+interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strMealThumb: string;
+}
+export default function RecipeCard({ meal }: {meal: Meal}) {
   return (
 
-    <div className="card">
-      <img src={meal.strMealThumb} />
-      <h3>{meal.strMeal}</h3>
-      <Link to={`/recipe/${meal.idMeal}`}>View</Link>
+    <div className="recipe-card">
+     <img src={meal.strMealThumb} alt={meal.strMeal} />
+      <h4 className="recipe-title">{meal.strMeal}</h4>
+      <Link to={`/recipe/${meal.idMeal}`} className="view-btn">
+        View Recipe
+      </Link>
     </div>
     
   );
